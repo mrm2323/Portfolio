@@ -3,8 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mehul Mitkari — Product Manager</title>
-<meta name="description" content="Product Manager portfolio — AI, technical systems, and user obsession. Columbia University MS, ex-Tata Technologies.">
+<title>Mehul Mitkari — Product Manager (AI)</title>
+<meta name="description" content="Product manager building AI products 0→1. Founding PM at See.Me; shipped EV safety software to 200+ production vehicles at Tata. Columbia MS&E, Dec 2026.">
+<meta property="og:title" content="Mehul Mitkari — Product Manager (AI)">
+<meta property="og:description" content="Founding PM at See.Me. AI features in production, 5%→10% conversion, 200+ EVs shipped.">
+<meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
@@ -97,22 +100,68 @@ nav.scrolled{background:rgba(12,10,9,.92);backdrop-filter:blur(20px);border-bott
 .impact-item p{font-size:14px;color:var(--subtle);line-height:1.6}
 .fw-tag{font-family:var(--mono);font-size:12px;color:var(--muted);background:rgba(255,255,255,.05);border:1px solid var(--border);padding:4px 12px;border-radius:6px;display:inline-block;margin:0 6px 6px 0}
 .expand-content{max-height:0;overflow:hidden;transition:max-height .5s ease}
-.expand-content.open{max-height:900px}
+
+.expand-content.open{max-height:2400px}
 .expand-btn{font-family:var(--sans);font-size:13px;font-weight:600;background:none;border:none;cursor:pointer;padding:12px 0 0;display:flex;align-items:center;gap:6px}
 .expand-btn .arrow{display:inline-block;transition:transform .3s}
 .expand-btn.open .arrow{transform:rotate(180deg)}
+.card-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.demo-link{font-size:13px;font-weight:600;border:1px solid;padding:7px 14px;border-radius:8px;margin-top:12px;transition:background .3s}
+.demo-link:hover{background:rgba(255,255,255,.06)}
+
+/* Status badges + metrics */
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.status{font-family:var(--mono);font-size:11px;letter-spacing:.5px;padding:3px 10px;border-radius:100px;border:1px solid}
+.st-shipped{color:#6EE7A8;border-color:rgba(110,231,168,.3);background:rgba(110,231,168,.08)}
+.st-pilot{color:var(--gold);border-color:rgba(212,168,83,.35);background:rgba(212,168,83,.08)}
+.st-project{color:#93B4FF;border-color:rgba(147,180,255,.3);background:rgba(147,180,255,.08)}
+.st-student{color:#7DD3E8;border-color:rgba(125,211,232,.3);background:rgba(125,211,232,.08)}
+.st-concept{color:#A8A29E;border-color:rgba(168,162,158,.3);background:rgba(168,162,158,.06)}
+.relevant{font-family:var(--mono);font-size:11px;color:var(--bg);background:var(--gold);padding:3px 10px;border-radius:100px;display:none}
+.project-card.is-relevant .relevant{display:inline-block}
+.project-card.is-relevant{border-color:rgba(212,168,83,.45)}
+.metrics{display:flex;gap:12px 28px;flex-wrap:wrap;margin:0 0 28px;padding-top:4px}
+.metric{position:relative;cursor:help;outline-offset:6px;border-radius:4px}
+.metric b{display:block;font-family:var(--serif);font-size:26px;color:var(--fg);line-height:1.1}
+.metric span{font-size:12px;color:#7a7672}
+.metric::after{content:attr(data-tip);position:absolute;left:0;bottom:calc(100% + 10px);width:240px;background:#1A1715;border:1px solid rgba(212,168,83,.3);color:var(--subtle);font-size:12px;line-height:1.5;padding:10px 12px;border-radius:8px;opacity:0;pointer-events:none;transform:translateY(4px);transition:opacity .2s,transform .2s;z-index:20}
+.metric:hover::after,.metric:focus::after{opacity:1;transform:translateY(0)}
+
+/* Controls */
+.company-banner{display:none;margin:0 0 32px;padding:18px 22px;border:1px solid rgba(212,168,83,.35);background:rgba(212,168,83,.06);border-radius:12px;font-size:14px;line-height:1.7;color:var(--subtle)}
+.company-banner.show{display:block}
+.company-banner strong{color:var(--gold)}
+.controls{margin:0 0 36px;display:grid;gap:14px}
+.chip-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.chip-label{font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#666;margin-right:6px;min-width:84px}
+.chip{font-family:var(--sans);font-size:13px;color:var(--muted);background:none;border:1px solid var(--border);padding:7px 14px;border-radius:100px;cursor:pointer;transition:all .25s}
+.chip:hover{border-color:rgba(212,168,83,.4);color:var(--fg)}
+.chip[aria-pressed="true"]{color:var(--bg);background:var(--gold);border-color:var(--gold);font-weight:600}
+.count-line{font-family:var(--mono);font-size:12px;color:#666}
+.cards{display:flex;flex-direction:column;gap:32px}
+.project-card.hidden{display:none}
+
+/* Hero extras */
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin:0 0 44px}
+.btn-primary{font-size:14px;font-weight:600;color:var(--bg);background:var(--gold);padding:14px 28px;border-radius:8px;display:inline-block;transition:background .3s}
+.btn-primary:hover{background:#E4B863}
+.btn-outline{font-size:14px;font-weight:600;color:var(--gold);border:1px solid rgba(212,168,83,.3);padding:14px 28px;border-radius:8px;display:inline-block;transition:border-color .3s}
+.btn-outline:hover{border-color:var(--gold)}
+.stat-num{font-family:var(--serif);font-size:28px;font-weight:700;color:var(--gold);margin-bottom:2px}
+.stat-label{font-size:12px;color:#7a7672;letter-spacing:.5px;max-width:150px}
 
 /* Experience */
 .exp-item{display:grid;grid-template-columns:200px 1fr;gap:40px;padding:32px 0;border-bottom:1px solid rgba(255,255,255,.05)}
 .exp-item:last-child{border-bottom:none}
-.exp-period{font-family:var(--mono);font-size:12px;color:#666;padding-top:4px}
+.exp-period{font-family:var(--mono);font-size:12px;color:#7a7672;padding-top:4px}
 .exp-role{font-size:18px;font-weight:600;color:var(--fg);margin-bottom:4px}
 .exp-company{font-size:14px;color:var(--gold);font-weight:500;margin-bottom:12px}
 .exp-desc{font-size:14px;color:var(--muted);line-height:1.7}
-
-/* Skills */
-.skills-wrap{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;padding:40px 0 80px}
-.skill-pill{font-family:var(--mono);font-size:11px;color:#666;border:1px solid rgba(255,255,255,.06);padding:6px 14px;border-radius:100px;transition:all .3s;cursor:default}
+.exp-link{display:inline-block;margin-top:10px;font-size:13px;color:var(--gold);font-weight:500}
+.exp-link:hover{text-decoration:underline}
+.skill-group{margin-top:36px}
+.skills-wrap{display:flex;flex-wrap:wrap;gap:10px;padding:4px 0 0}
+.skill-pill{font-family:var(--mono);font-size:11px;color:#8a8680;border:1px solid rgba(255,255,255,.08);padding:6px 14px;border-radius:100px;transition:all .3s;cursor:default}
 .skill-pill:hover{border-color:rgba(212,168,83,.3);color:var(--gold)}
 
 /* Contact */
@@ -120,19 +169,20 @@ nav.scrolled{background:rgba(12,10,9,.92);backdrop-filter:blur(20px);border-bott
 .contact h2{font-family:var(--serif);font-size:48px;font-weight:600;line-height:1.2;margin-bottom:24px}
 .contact h2 span{color:var(--gold)}
 .contact p{font-size:16px;color:var(--muted);margin-bottom:40px;line-height:1.7}
-.btn-primary{font-size:14px;font-weight:600;color:var(--bg);background:var(--gold);padding:14px 32px;border-radius:8px;display:inline-block;transition:background .3s;margin:0 8px 12px}
-.btn-primary:hover{background:#E4B863}
-.btn-outline{font-size:14px;font-weight:600;color:var(--gold);border:1px solid rgba(212,168,83,.3);padding:14px 32px;border-radius:8px;display:inline-block;transition:border-color .3s;margin:0 8px 12px}
-.btn-outline:hover{border-color:var(--gold)}
+.contact .btn-primary,.contact .btn-outline{margin:0 8px 12px}
 .social-links{display:flex;gap:24px;justify-content:center;margin-top:12px}
-.social-links a{font-size:13px;color:#666;transition:color .3s}
+.social-links a{font-size:13px;color:#8a8680;transition:color .3s}
 .social-links a:hover{color:var(--gold)}
-
-/* Footer */
 footer{padding:32px 40px;border-top:1px solid rgba(255,255,255,.05);text-align:center}
-footer p{font-family:var(--mono);font-size:11px;color:#444}
+footer p{font-family:var(--mono);font-size:11px;color:#6a6662}
 
-/* Responsive */
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  body::before{animation:none}
+  .fade-up{opacity:1;transform:none;transition:none}
+  .expand-content{transition:none}
+}
 @media(max-width:768px){
   nav{padding:16px 20px}
   .nav-links{gap:20px}
@@ -151,15 +201,16 @@ footer p{font-family:var(--mono);font-size:11px;color:#444}
   .project-hero-quote{font-size:17px}
   .exp-item{grid-template-columns:1fr;gap:8px}
   .contact h2{font-size:32px}
+  .chip-label{width:100%}
+  .metric::after{width:200px}
   section{padding:60px 20px !important}
 }
 </style>
 </head>
 <body>
 
-<!-- Nav -->
-<nav id="navbar">
-  <a href="#hero" class="logo">MM<span>.</span></a>
+<nav id="navbar" aria-label="Primary">
+  <a href="#hero" class="logo" aria-label="Top of page">MM<span>.</span></a>
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#projects">Work</a>
@@ -168,18 +219,22 @@ footer p{font-family:var(--mono);font-size:11px;color:#444}
   </div>
 </nav>
 
-<!-- Hero -->
 <section class="hero" id="hero">
   <div class="hero-glow"></div>
   <div class="hero-content">
-    <p class="label fade-up">Product Manager</p>
+    <p class="label fade-up">Founding Product Manager · See.Me</p>
     <h1 class="fade-up delay-1">Mehul<br>Mitkari<span>.</span></h1>
-    <p class="hero-desc fade-up delay-2">I build products at the intersection of <strong>AI, technical systems, and user obsession</strong>. From hybrid powertrains at Tata Motors to shipping AI apps with 78% activation rates — I turn ambiguity into shipped products.</p>
+    <p class="hero-desc fade-up delay-2">I build AI products where <strong>technical systems meet user obsession</strong>. Today I&rsquo;m the sole PM on a GenAI art-tech platform; before that I shipped safety software to <strong>200+ production EVs</strong> at Tata.</p>
+    <div class="hero-cta fade-up delay-2">
+      <a class="btn-primary" href="#projects" data-track="cta_work">See my work</a>
+      <a class="btn-outline" href="mailto:mrm2323@columbia.edu" data-track="cta_email">Email me</a>
+      <a class="btn-outline" href="https://www.linkedin.com/in/mehulmitkari" target="_blank" rel="noopener" data-track="cta_linkedin">LinkedIn ↗</a>
+    </div>
     <div class="stats fade-up delay-3">
-      <div><div class="stat-num">2+</div><div class="stat-label">Years in Product</div></div>
-      <div><div class="stat-num">$3B</div><div class="stat-label">Market Opp. Identified</div></div>
-      <div><div class="stat-num">78%</div><div class="stat-label">Activation Rate (Prepd)</div></div>
-      <div><div class="stat-num">4</div><div class="stat-label">Shipped Products</div></div>
+      <div><div class="stat-num"><span class="count" data-to="75" data-prefix="~" data-suffix="%">~75%</span></div><div class="stat-label">of 2,000+ artist profiles automated with AI (See.Me)</div></div>
+      <div><div class="stat-num">5%→10%</div><div class="stat-label">checkout conversion, A/B tested (See.Me)</div></div>
+      <div><div class="stat-num"><span class="count" data-to="200" data-suffix="+">200+</span></div><div class="stat-label">production EVs shipped to (Tata)</div></div>
+      <div><div class="stat-num"><span class="count" data-to="30" data-suffix="–40">30–40</span></div><div class="stat-label">artists interviewed before building (See.Me)</div></div>
     </div>
   </div>
   <div class="hero-photo fade-up delay-2">
@@ -188,37 +243,36 @@ footer p{font-family:var(--mono);font-size:11px;color:#444}
   <div class="scroll-line" id="scrollLine"></div>
 </section>
 
-<!-- About -->
 <section id="about" style="padding:100px 0">
 <div class="container">
   <div class="about-grid">
     <div class="fade-up">
       <p class="label">About</p>
-      <h2 style="font-family:var(--serif);font-size:36px;font-weight:600;line-height:1.3;margin-bottom:24px">Engineer turned PM.<br><span style="color:var(--muted)">Builder at heart.</span></h2>
+      <h2 style="font-family:var(--serif);font-size:36px;font-weight:600;line-height:1.3;margin-bottom:24px">Engineer turned PM.<br><span style="color:var(--muted)">I build what I specify.</span></h2>
       <div class="about-text">
-        <p>I'm an MS student at <strong>Columbia University</strong> studying Management Science & Engineering, with a mechanical engineering undergrad and 2+ years as an Associate Product Manager at <strong>Tata Technologies</strong> where I shipped vehicle control systems and hybrid powertrain products.</p>
-        <p>What sets me apart is that I don't just write PRDs — I build. I've founded an AI meal planning app (Prepd.ai), sold an autonomous accounting agent to real clients, and conducted deep product analysis on YouTube and Google Maps that goes from user research all the way through to prioritized solutions with wireframes.</p>
-        <p>I believe the best PMs are the ones who've felt the pain of building something from zero and watching real users interact with it. That's where the empathy for engineering constraints and the obsession with user outcomes comes from.</p>
+        <p>I&rsquo;m finishing an MS in <strong>Management Science &amp; Engineering at Columbia</strong> (December 2026), with a mechanical engineering degree and two years as an Associate Product Manager at <strong>Tata Technologies</strong>, where I took vehicle safety software from business case to 200+ production EVs.</p>
+        <p>Now I&rsquo;m the <strong>founding PM at See.Me</strong>, running discovery, PRDs, LLM evals, roadmap and monetization for a GenAI art-tech platform. I don&rsquo;t just write PRDs: I prototype in Cursor and Claude Code, write my own evals, and ship small products on the side, like a voice AI coach and an AI meal planner.</p>
+        <p>I believe the best PMs have felt the pain of building something from zero and watched real users use it. That&rsquo;s where my empathy for engineering constraints and my focus on user outcomes come from.</p>
       </div>
     </div>
     <div class="fade-up delay-1" style="padding-top:48px">
       <div style="margin-bottom:24px">
         <p class="info-label">Education</p>
-        <div class="info-card"><h4>Columbia University</h4><p>MS, Management Science & Engineering · 3.5 GPA</p></div>
+        <div class="info-card"><h4>Columbia University</h4><p>MS, Management Science &amp; Engineering · GPA 3.5 · Dec 2026</p></div>
         <div class="info-card"><h4>MIT World Peace University</h4><p>B.Tech, Mechanical Engineering · 9.18/10 · Top 2%</p></div>
       </div>
       <div style="margin-bottom:24px">
         <p class="info-label">Certifications</p>
-        <div><span class="tag">PSPO II</span><span class="tag">Google PM</span><span class="tag">Advanced Business Analytics</span></div>
+        <div><span class="tag">PSPO II</span><span class="tag">AI Product Management</span><span class="tag">Advanced Business Analytics</span></div>
       </div>
       <div>
         <p class="info-label">Leadership</p>
         <div class="info-card">
-          <h4>VP Entrepreneurship — Columbia ELC</h4>
-          <p>Managing startup programming and founder engagement</p>
+          <h4>Vice President, Entrepreneurship — Columbia ELC</h4>
+          <p>Leads startup programming and founder engagement</p>
           <div style="margin-top:12px">
-          <h4>Captain — BAJA Motorsports</h4>
-          <p>Led 35-member team to 2nd place nationally · $26K budget · $18K sponsorships</p>
+          <h4>Vice-Captain — BAJA Motorsports</h4>
+          <p>Led a 35-member team to a 2nd-place national finish (top 1%) · $26K budget · $18K in sponsorships</p>
           </div>
         </div>
       </div>
@@ -229,20 +283,117 @@ footer p{font-family:var(--mono);font-size:11px;color:#444}
 
 <div class="container"><div class="divider"></div></div>
 
-<!-- Projects -->
 <section id="projects" style="padding:100px 0">
 <div class="container">
   <div class="fade-up">
     <p class="label">Case Studies</p>
     <h2 style="font-family:var(--serif);font-size:42px;font-weight:600;line-height:1.2;margin-bottom:16px">Selected Work<span style="color:var(--gold)">.</span></h2>
-    <p style="font-size:16px;color:var(--muted);max-width:560px;line-height:1.7;margin-bottom:56px">Each project tells a story: from identifying the real problem, through rigorous prioritization, to a solution grounded in evidence. Click to explore the full PM thinking behind each one.</p>
+    <p style="font-size:16px;color:var(--muted);max-width:620px;line-height:1.7;margin-bottom:40px">Every project is labeled for what it is: shipped, still running, or a concept. Hover a number to see how it was measured. Open any card for the full story.</p>
   </div>
 
-  <div style="display:flex;flex-direction:column;gap:32px">
+  <div class="company-banner" id="companyBanner" role="note"></div>
 
-    <!-- Project 1: WhatsApp -->
-    <div class="project-card fade-up" id="proj-wa">
-      <div class="project-header">
+  <div class="controls" id="controls">
+    <div class="chip-row" role="group" aria-label="Filter by status">
+      <span class="chip-label">Status</span>
+      <button class="chip" data-group="status" data-value="all" aria-pressed="true">All</button>
+      <button class="chip" data-group="status" data-value="shipped" aria-pressed="false">Shipped</button>
+      <button class="chip" data-group="status" data-value="pilot" aria-pressed="false">Pilot</button>
+      <button class="chip" data-group="status" data-value="project" aria-pressed="false">Solo &amp; student projects</button>
+      <button class="chip" data-group="status" data-value="concept" aria-pressed="false">Concept</button>
+    </div>
+    <div class="chip-row" role="group" aria-label="Filter by skill">
+      <span class="chip-label">Skill</span>
+      <button class="chip" data-group="skill" data-value="ai" aria-pressed="false">AI</button>
+      <button class="chip" data-group="skill" data-value="growth" aria-pressed="false">Growth</button>
+      <button class="chip" data-group="skill" data-value="monetization" aria-pressed="false">Monetization</button>
+      <button class="chip" data-group="skill" data-value="research" aria-pressed="false">Research</button>
+      <button class="chip" data-group="skill" data-value="technical" aria-pressed="false">Technical</button>
+    </div>
+    <p class="count-line" id="countLine" aria-live="polite"></p>
+  </div>
+
+  <div class="cards" id="cards">
+<div class="project-card fade-up" id="proj-seeme" data-status="shipped pilot" data-tags="ai growth monetization research technical">
+<div class="project-header"><div class="badges"><span class="status st-shipped">Shipped</span><span class="status st-pilot">Pilot in progress</span></div>
+<div class="project-tag" style="color:#D4A853;background:rgba(212,168,83,.1)">GenAI · Art-Tech Platform</div>
+<h3>See.Me</h3><p class="project-subtitle">Founding Product Manager (Intern, now part-time) &middot; Mar &rsquo;26 &ndash; Present</p>
+<p class="project-hero-quote" style="color:#D4A853">&ldquo;Sole PM on a 4-engineer, 1-designer team: from customer interviews to AI features live in production.&rdquo;</p>
+<div class="metrics"><div class="metric" tabindex="0" data-tip="About 75% of 2,000+ artist profile creations, via an AI workflow built on Claude Cowork, Gemini API, Drive and Sheets."><b class="count" data-to="75" data-prefix="~" data-suffix="%">~75%</b><span>profile creations automated</span></div><div class="metric" tabindex="0" data-tip="Open Call artist-competition funnel: drop-off diagnosed with conversion analytics, then redesigned and A/B tested."><b>5%→10%</b><span>checkout conversion</span></div><div class="metric" tabindex="0" data-tip="Pinecone semantic search over 1,000+ AI-enriched artworks."><b class="count" data-to="30" data-prefix="~" data-suffix="%">~30%</b><span>faster artwork discovery</span></div><div class="metric" tabindex="0" data-tip="Prototypes built in Figma Make, Cursor and Claude Code helped secure the raise. A contributing role, not sole credit."><b>$100K</b><span>pre-seed raise I helped secure</span></div></div></div>
+<div class="project-body">
+<div style="margin-bottom:20px"><p class="section-label">Context</p><p class="project-text">See.Me is a GenAI-powered art-tech platform. I am the sole PM on a team of 4 engineers and 1 designer, reporting to the CPO. I own discovery, PRDs, evals, the roadmap and monetization.</p></div>
+<div class="expand-content" id="expand-seeme">
+<div style="margin-bottom:20px"><p class="section-label">What I shipped</p><div class="impact-item"><span style="color:#D4A853">▸</span><p>Interviewed <strong>30&ndash;40 artists</strong>, then designed and shipped a live AI content-generation feature &mdash; <strong>Gemini prompt architecture, guardrails, and two self-authored evals</strong> (one code-based, one LLM-as-judge) &mdash; now writing artwork descriptions and artist bios in production.</p></div><div class="impact-item"><span style="color:#D4A853">▸</span><p>Automated <strong>~75% of 2,000+ artist profiles</strong> via an AI workflow using Claude Cowork, Gemini API, Drive and Sheets; built <strong>Pinecone semantic search</strong> over 1,000+ AI-enriched artworks, cutting discovery time <strong>~30%</strong>.</p></div><div class="impact-item"><span style="color:#D4A853">▸</span><p>Diagnosed the <strong>Open Call funnel&rsquo;s</strong> drop-off via conversion analytics, then redesigned and A/B tested it &mdash; lifting checkout conversion <strong>5% to 10%</strong>.</p></div><div class="impact-item"><span style="color:#D4A853">▸</span><p>Authored the PRD for See.Me&rsquo;s first <strong>two-tier patron subscription</strong> (5-release rollout); now running a <strong>3-month, 20-artist pilot</strong>, tracked via <strong>20+ user-behavior KPIs</strong>, testing a recurring-revenue hypothesis.</p></div><div class="impact-item"><span style="color:#D4A853">▸</span><p>Set the quarterly <strong>OKR prioritizing artist acquisition</strong> and led a <strong>6-month H1/H2 roadmap</strong> with Sales and Marketing GTM input, prototyping the vision in <strong>Figma Make, Cursor, and Claude Code</strong> to help secure a <strong>$100K pre-seed raise</strong>.</p></div></div>
+<div style="margin-bottom:20px"><p class="section-label">Status</p><p class="project-text">The patron-subscription pilot is still running, so there are no results to report yet.</p></div>
+<div style="margin-bottom:20px"><p class="section-label">Skills in play</p><div><span class="fw-tag">Prompt architecture</span><span class="fw-tag">Guardrails</span><span class="fw-tag">LLM-as-judge evals</span><span class="fw-tag">A/B testing</span><span class="fw-tag">OKRs</span><span class="fw-tag">PRDs</span><span class="fw-tag">Vector search</span><span class="fw-tag">GTM</span></div></div>
+</div>
+<div class="card-actions"><button class="expand-btn" style="color:#D4A853" onclick="toggleExpand('seeme')" aria-expanded="false">Read full case study <span class="arrow">↓</span></button></div>
+</div>
+</div>
+<div class="project-card fade-up" id="proj-tata" data-status="shipped" data-tags="research technical">
+<div class="project-header"><div class="badges"><span class="status st-shipped">Shipped</span></div>
+<div class="project-tag" style="color:#F97316;background:rgba(249,115,22,.1)">Automotive Software · EV Safety</div>
+<h3>Tata Technologies</h3><p class="project-subtitle">Associate Product Manager &ndash; New Product Development &middot; Jul &rsquo;23 &ndash; Jul &rsquo;25</p>
+<p class="project-hero-quote" style="color:#F97316">&ldquo;From a business case on paper to diagnostic logic running in 200+ production EVs.&rdquo;</p>
+<div class="metrics"><div class="metric" tabindex="0" data-tip="In-house Vehicle Control Unit safety software (MATLAB/Simulink) instead of outsourcing, per the business case I presented."><b class="count" data-to="70" data-prefix="" data-suffix="%">70%</b><span>lower development costs</span></div><div class="metric" tabindex="0" data-tip="Across India, validated via simulation and real-world vehicle testing."><b class="count" data-to="200" data-prefix="" data-suffix="+">200+</b><span>production EVs shipped to</span></div><div class="metric" tabindex="0" data-tip="Derived from fleet and driver complaint and satisfaction data."><b class="count" data-to="5" data-prefix="" data-suffix="">5</b><span>new safety parameters defined</span></div></div></div>
+<div class="project-body">
+<div style="margin-bottom:20px"><p class="section-label">Context</p><p class="project-text">Safety software for electric vehicles. I made the case for building Vehicle Control Unit safety software in-house instead of outsourcing it, then took it from research through to production.</p></div>
+<div class="expand-content" id="expand-tata">
+<div style="margin-bottom:20px"><p class="section-label">What I did</p><div class="impact-item"><span style="color:#F97316">▸</span><p>Presented the business case for <strong>in-house</strong> Vehicle Control Unit safety software (<strong>MATLAB/Simulink</strong>) over outsourcing, securing <strong>stakeholder buy-in and funding</strong>, and co-authored the <strong>PRD</strong> &mdash; cutting development costs <strong>70%</strong>.</p></div><div class="impact-item"><span style="color:#F97316">▸</span><p>Benchmarked competitors across <strong>US, European, and Indian markets</strong>, ran product teardowns, and analyzed fleet complaint and satisfaction data to pinpoint <strong>safety and comfort gaps</strong> in EV systems.</p></div><div class="impact-item"><span style="color:#F97316">▸</span><p>Led development of <strong>Vehicle Control Unit fault-detection logic and automated responses</strong> from those findings, defining <strong>5 new safety parameters</strong> for rider safety and comfort.</p></div><div class="impact-item"><span style="color:#F97316">▸</span><p>Shipped the <strong>in-house-built</strong> diagnostic logic to <strong>200+ production EVs</strong> across India, validated via simulation and real-world testing.</p></div></div>
+<div style="margin-bottom:20px"><p class="section-label">Skills in play</p><div><span class="fw-tag">Business case</span><span class="fw-tag">PRDs</span><span class="fw-tag">Competitive teardowns</span><span class="fw-tag">Safety requirements</span><span class="fw-tag">MATLAB/Simulink</span><span class="fw-tag">Validation</span></div></div>
+</div>
+<div class="card-actions"><button class="expand-btn" style="color:#F97316" onclick="toggleExpand('tata')" aria-expanded="false">Read full case study <span class="arrow">↓</span></button></div>
+</div>
+</div>
+<div class="project-card fade-up" id="proj-spar" data-status="shipped project" data-tags="ai research growth technical">
+<div class="project-header"><div class="badges"><span class="status st-shipped">Shipped (beta)</span><span class="status st-project">Individual project</span></div>
+<div class="project-tag" style="color:#A78BFA;background:rgba(167,139,250,.1)">Voice AI · Individual Project</div>
+<h3>Spar.ai &mdash; Kabir</h3><p class="project-subtitle">Voice AI Communication Coach &middot; Feb &rsquo;26 &ndash; Apr &rsquo;26</p>
+<p class="project-hero-quote" style="color:#A78BFA">&ldquo;A real-time voice coach for people who freeze under pressure.&rdquo;</p>
+<div class="metrics"><div class="metric" tabindex="0" data-tip="Measured across the 35-user closed beta."><b class="count" data-to="65" data-prefix="" data-suffix="%">65%</b><span>D30 retention</span></div><div class="metric" tabindex="0" data-tip="Customer satisfaction in the closed beta, from 6 to 8 out of 10."><b>6→8</b><span>CSAT out of 10</span></div><div class="metric" tabindex="0" data-tip="Lift attributed to shipping phone access in the closed beta."><b class="count" data-to="15" data-prefix="+" data-suffix="%">+15%</b><span>retention from phone access</span></div><div class="metric" tabindex="0" data-tip="Lift attributed to shipping document uploads in the closed beta."><b class="count" data-to="20" data-prefix="+" data-suffix="%">+20%</b><span>returning users from doc uploads</span></div></div></div>
+<div class="project-body">
+<div style="margin-bottom:20px"><p class="section-label">Context</p><p class="project-text">Validated via <strong>40 surveys and 15 interviews (34 of 40)</strong> that students freeze under pressure, then designed the UX and shipped <strong>Kabir</strong>, a real-time voice coach built on <strong>Vapi, GPT-4o, and Supermemory</strong> with cross-session memory.</p></div>
+<div class="expand-content" id="expand-spar">
+<div style="margin-bottom:20px"><p class="section-label">What I did</p><div class="impact-item"><span style="color:#A78BFA">▸</span><p>Ran <strong>50&ndash;60 prompt iterations</strong> &mdash; adversarial prompting and <strong>evals</strong> rejecting any note that doesn&rsquo;t quote the user.</p></div><div class="impact-item"><span style="color:#A78BFA">▸</span><p>Instrumented a <strong>35-user closed beta</strong> in <strong>Amplitude and Microsoft Clarity</strong>; shipped phone access (<strong>+15% retention</strong>) and document uploads (<strong>+20% returning users</strong>), reaching <strong>65% D30 retention</strong> and lifting CSAT <strong>6 to 8/10</strong>.</p></div></div>
+<div style="margin-bottom:20px"><p class="section-label">Skills in play</p><div><span class="fw-tag">Voice AI</span><span class="fw-tag">Prompt iteration</span><span class="fw-tag">Evals</span><span class="fw-tag">User research</span><span class="fw-tag">Amplitude</span><span class="fw-tag">Microsoft Clarity</span></div></div>
+</div>
+<div class="card-actions"><button class="expand-btn" style="color:#A78BFA" onclick="toggleExpand('spar')" aria-expanded="false">Read full case study <span class="arrow">↓</span></button><a class="demo-link" style="color:#A78BFA;border-color:#A78BFA55" href="https://youtu.be/RdMXZVnQ_Po" target="_blank" rel="noopener" data-track="demo_spar">Watch demo ↗</a></div>
+</div>
+</div>
+<div class="project-card fade-up" id="proj-prepd" data-status="shipped project" data-tags="ai growth research">
+<div class="project-header"><div class="badges"><span class="status st-shipped">Shipped (beta)</span><span class="status st-project">Individual project</span></div>
+<div class="project-tag" style="color:#F59E0B;background:rgba(245,158,11,.1)">0→1 Product · Individual Project</div>
+<h3>Prepd.ai</h3><p class="project-subtitle">AI Meal-Planning Assistant &middot; Dec &rsquo;25 &ndash; Feb &rsquo;26</p>
+<p class="project-hero-quote" style="color:#F59E0B">&ldquo;78% activation. 68% Day-7 retention. Zero CAC.&rdquo;</p>
+<div class="metrics"><div class="metric" tabindex="0" data-tip="Across 50 beta users."><b class="count" data-to="78" data-prefix="" data-suffix="%">78%</b><span>activation</span></div><div class="metric" tabindex="0" data-tip="Across the same 50 beta users."><b class="count" data-to="68" data-prefix="" data-suffix="%">68%</b><span>Day-7 retention</span></div><div class="metric" tabindex="0" data-tip="A/B test, n=34: real-time recipe generation beat cached results. A small sample, so directional."><b class="count" data-to="40" data-prefix="+" data-suffix="%">+40%</b><span>engagement lift</span></div><div class="metric" tabindex="0" data-tip="AI ingredient scanning and personalized recipes."><b>3 days</b><span>to ship the MVP</span></div></div></div>
+<div class="project-body">
+<div style="margin-bottom:20px"><p class="section-label">The Problem</p><p class="project-text">Validated decision fatigue via <strong>18 user interviews and 52 surveys</strong>: <strong>73%</strong> reported daily meal-planning friction. International students emerged as the beachhead segment.</p></div>
+<div class="expand-content" id="expand-prepd">
+<div style="margin-bottom:20px"><p class="section-label">Key Insight</p><p class="project-text insight-text" style="border-color:rgba(245,158,11,.3)">Decision fatigue around meals isn&rsquo;t about recipes. It&rsquo;s about the gap between what&rsquo;s in your fridge and what you could make, and AI ingredient scanning removes the hardest step.</p></div>
+<div style="margin-bottom:20px"><p class="section-label">What I did</p><div class="impact-item"><span style="color:#F59E0B">▸</span><p>Shipped an AI recipe MVP in <strong>3 days</strong> (AI ingredient scanning, personalized recipes).</p></div><div class="impact-item"><span style="color:#F59E0B">▸</span><p>Reached <strong>78% activation</strong> and <strong>68% Day-7 retention</strong> across <strong>50 beta users</strong>, acquired at <strong>zero CAC</strong> via Product Hunt and the Columbia community.</p></div><div class="impact-item"><span style="color:#F59E0B">▸</span><p>Instrumented <strong>7+ PostHog events</strong>; an <strong>A/B test (n=34)</strong> lifted engagement <strong>40%</strong> via real-time recipe generation over cached results.</p></div></div>
+<div style="margin-bottom:20px"><p class="section-label">Skills in play</p><div><span class="fw-tag">Lean MVP</span><span class="fw-tag">A/B testing</span><span class="fw-tag">Funnel analytics (PostHog)</span><span class="fw-tag">Beachhead strategy</span></div></div>
+</div>
+<div class="card-actions"><button class="expand-btn" style="color:#F59E0B" onclick="toggleExpand('prepd')" aria-expanded="false">Read full case study <span class="arrow">↓</span></button><a class="demo-link" style="color:#F59E0B;border-color:#F59E0B55" href="https://drive.google.com/file/d/1ctxGZZdjzA6VlyRjFffbLkVM0G1AfVT8/view" target="_blank" rel="noopener" data-track="demo_prepd">Watch demo ↗</a></div>
+</div>
+</div>
+<div class="project-card fade-up" id="proj-gcloud" data-status="project" data-tags="ai research technical">
+<div class="project-header"><div class="badges"><span class="status st-student">Student project</span></div>
+<div class="project-tag" style="color:#06B6D4;background:rgba(6,182,212,.1)">Cloud · Agentic AI</div>
+<h3>Google Cloud &times; Columbia Business School</h3><p class="project-subtitle">Product Manager (Student Team) &middot; Jan &rsquo;26 &ndash; May &rsquo;26 &middot; part-time team project, not employment</p>
+<p class="project-hero-quote" style="color:#06B6D4">&ldquo;Root-causing 4&ndash;5 day support delays, then prototyping sub-minute resolution.&rdquo;</p>
+<div class="metrics"><div class="metric" tabindex="0" data-tip="Billing and API-support workflow gaps found through DevOps interviews and AWS/Azure teardowns."><b>4–5 days</b><span>resolution delays root-caused</span></div><div class="metric" tabindex="0" data-tip="Demonstrated in a functional MVP for targeted support workflows. A prototype, not a production deployment."><b><1 min</b><span>resolution in the MVP demo</span></div></div></div>
+<div class="project-body">
+<div style="margin-bottom:20px"><p class="section-label">Context</p><p class="project-text">A part-time student team project with Columbia Business School for Google Cloud. I presented the proposal to Google Cloud product leadership.</p></div>
+<div class="expand-content" id="expand-gcloud">
+<div style="margin-bottom:20px"><p class="section-label">What I did</p><div class="impact-item"><span style="color:#06B6D4">▸</span><p>Conducted <strong>DevOps interviews and AWS/Azure teardowns</strong>, identifying billing and API-support workflow gaps behind <strong>4&ndash;5 day resolution delays</strong>.</p></div><div class="impact-item"><span style="color:#06B6D4">▸</span><p>Defined a <strong>human-in-the-loop agentic AI solution</strong> to detect anomalies, contain budget and quota overruns, and automate low-risk actions.</p></div><div class="impact-item"><span style="color:#06B6D4">▸</span><p>Built a functional MVP with <strong>Cursor, Claude Code, and Vercel</strong>, demonstrating <strong>sub-minute resolution</strong> for targeted support workflows.</p></div><div class="impact-item"><span style="color:#06B6D4">▸</span><p>Authored the <strong>PRD, user journeys, success metrics, and roadmap</strong>, and presented the proposal to Google Cloud product leadership.</p></div></div>
+<div style="margin-bottom:20px"><p class="section-label">Skills in play</p><div><span class="fw-tag">Competitive teardowns</span><span class="fw-tag">Agentic AI</span><span class="fw-tag">Human-in-the-loop</span><span class="fw-tag">PRDs</span><span class="fw-tag">Rapid prototyping</span></div></div>
+</div>
+<div class="card-actions"><button class="expand-btn" style="color:#06B6D4" onclick="toggleExpand('gcloud')" aria-expanded="false">Read full case study <span class="arrow">↓</span></button></div>
+</div>
+</div>
+<!-- Project 1: WhatsApp -->
+    <div class="project-card fade-up" id="proj-wa" data-status="concept" data-tags="ai research">
+      <div class="project-header"><div class="badges"><span class="status st-concept">Concept</span></div>
         <div class="project-tag" style="color:#25D366;background:rgba(37,211,102,.1)">AI + Messaging</div>
         <h3>WhatsApp "Catch Me Up"</h3>
         <p class="project-subtitle">AI-Powered Group Chat Digest — PRD & Product Story</p>
@@ -266,8 +417,8 @@ footer p{font-family:var(--mono);font-size:11px;color:#444}
     </div>
 
     <!-- Project 2: YouTube -->
-    <div class="project-card fade-up" id="proj-yt">
-      <div class="project-header">
+    <div class="project-card fade-up" id="proj-yt" data-status="concept" data-tags="ai research">
+      <div class="project-header"><div class="badges"><span class="status st-concept">Concept</span></div>
         <div class="project-tag" style="color:#FF0000;background:rgba(255,0,0,.1)">Trust & Learning</div>
         <h3>YouTube Learning Trust</h3>
         <p class="project-subtitle">3-Phase Product Analysis — Research → Prioritization → Solution</p>
@@ -291,8 +442,8 @@ footer p{font-family:var(--mono);font-size:11px;color:#444}
     </div>
 
     <!-- Project 3: Google Maps -->
-    <div class="project-card fade-up" id="proj-gm">
-      <div class="project-header">
+    <div class="project-card fade-up" id="proj-gm" data-status="concept" data-tags="ai research">
+      <div class="project-header"><div class="badges"><span class="status st-concept">Concept</span></div>
         <div class="project-tag" style="color:#4285F4;background:rgba(66,133,244,.1)">Travel & Retention</div>
         <h3>Improving Google Maps</h3>
         <p class="project-subtitle">Strategic Product Roadmap — Retention-Focused Growth</p>
@@ -315,38 +466,14 @@ footer p{font-family:var(--mono);font-size:11px;color:#444}
       </div>
     </div>
 
-    <!-- Project 4: Prepd.ai -->
-    <div class="project-card fade-up" id="proj-prepd">
-      <div class="project-header">
-        <div class="project-tag" style="color:#F59E0B;background:rgba(245,158,11,.1)">0→1 Product</div>
-        <h3>Prepd.ai</h3>
-        <p class="project-subtitle">AI-Powered Meal Planning — Built, Shipped, Measured</p>
-        <p class="project-hero-quote" style="color:#F59E0B">"78% activation rate. 68% Day-7 retention. Zero CAC."</p>
-      </div>
-      <div class="project-body">
-        <div style="margin-bottom:20px"><p class="section-label">The Problem</p><p class="project-text">73% of international students surveyed reported decision fatigue around daily cooking. The mental overhead of figuring out what to cook, with what ingredients, within budget constraints — it's a daily drain.</p></div>
-        <div class="expand-content" id="expand-prepd">
-          <div style="margin-bottom:20px"><p class="section-label">Key Insight</p><p class="project-text insight-text" style="border-color:rgba(245,158,11,.3)">Decision fatigue around meals isn't about recipes — it's about the gap between what's in your fridge and what you could make. Bridging that gap with AI ingredient scanning (92% accuracy) removes the hardest step.</p></div>
-          <div style="margin-bottom:20px"><p class="section-label">The Solution</p><p class="project-text">AI-powered meal planning app with ingredient scanning and personalized recipe generation. Shipped MVP in 10 days. Instrumented with PostHog (15+ events). Ran A/B test (n=34) that pivoted roadmap to real-time generation.</p></div>
-          <div style="margin-bottom:20px"><p class="section-label">Impact & Process</p>
-            <div class="impact-item"><span style="color:#F59E0B">▸</span><p>78% activation rate (vs 40% industry benchmark)</p></div>
-            <div class="impact-item"><span style="color:#F59E0B">▸</span><p>68% Day-7 retention</p></div>
-            <div class="impact-item"><span style="color:#F59E0B">▸</span><p>50+ organic beta users via Product Hunt + Columbia community</p></div>
-            <div class="impact-item"><span style="color:#F59E0B">▸</span><p>A/B test drove 40% engagement increase</p></div>
-          </div>
-          <div><p class="section-label">Frameworks Used</p><div><span class="fw-tag">Lean MVP</span><span class="fw-tag">A/B Testing</span><span class="fw-tag">Funnel Analytics (PostHog)</span><span class="fw-tag">Beachhead Strategy</span></div></div>
-        </div>
-        <button class="expand-btn" style="color:#F59E0B" onclick="toggleExpand('prepd')">Read full case study <span class="arrow">↓</span></button>
-      </div>
-    </div>
-
+    
+  <!-- ADD NEW CASE STUDY CARDS ABOVE THIS LINE. Copy a concept card and set data-status ("shipped", "pilot", "project" or "concept") and data-tags (ai, growth, monetization, research, technical). -->
   </div>
 </div>
 </section>
 
 <div class="container"><div class="divider"></div></div>
 
-<!-- Experience -->
 <section id="experience" style="padding:100px 0">
 <div class="container">
   <div class="fade-up">
@@ -354,82 +481,171 @@ footer p{font-family:var(--mono);font-size:11px;color:#444}
     <h2 style="font-family:var(--serif);font-size:42px;font-weight:600;line-height:1.2;margin-bottom:56px">The Journey<span style="color:var(--gold)">.</span></h2>
   </div>
   <div>
-    <div class="exp-item fade-up">
-      <div class="exp-period">Jan 2026 → Present</div>
-      <div><div class="exp-role">AI Product Manager</div><div class="exp-company">Google Cloud (via Columbia Business School)</div><div class="exp-desc">Analyzing AI-powered support opportunity. Competitive analysis (AWS, Azure, Sierra). Defining roadmap targeting 30% Tier-1 ticket reduction. Building Agentic AI prototype + PRD for Google Cloud Product Leadership.</div></div>
-    </div>
-    <div class="exp-item fade-up delay-1">
-      <div class="exp-period">Jan 2026 → Present</div>
-      <div><div class="exp-role">Founder & Product Manager</div><div class="exp-company">Prepd.ai</div><div class="exp-desc">0→1 AI meal planning app. 78% activation, 68% D7 retention. Shipped in 10 days. PostHog instrumentation, A/B testing, Product Hunt launch.</div></div>
-    </div>
-    <div class="exp-item fade-up delay-2">
-      <div class="exp-period">Dec 2025 → Present</div>
-      <div><div class="exp-role">Builder</div><div class="exp-company">AI Finance Assistant</div><div class="exp-desc">Built and sold autonomous accounting agent to 3 SMB clients. n8n + WhatsApp + Claude API + Google Sheets. $450 revenue, 33x ROI for clients, 100% retention.</div></div>
-    </div>
-    <div class="exp-item fade-up delay-3">
-      <div class="exp-period">Jul 2023 → Jul 2025</div>
-      <div><div class="exp-role">Associate Product Manager</div><div class="exp-company">Tata Technologies (Onsite Tata Motors)</div><div class="exp-desc">Vehicle Control Systems & Hybrid Powertrain. Identified $3B market opportunity. Led in-house dev saving 70% costs. Drove 19% fuel-efficiency improvement. Secured CXO approval for India's first hybrid small commercial vehicle.</div></div>
-    </div>
+<div class="exp-item fade-up "><div class="exp-period">Mar 2026 → Present</div><div><div class="exp-role">Founding Product Manager (Intern, now part-time)</div><div class="exp-company">See.Me · New York</div><div class="exp-desc">Sole PM on a 4-engineer, 1-designer GenAI art-tech team, reporting to the CPO.</div><a class="exp-link" href="#proj-seeme" data-open="seeme">See the case study &rarr;</a></div></div><div class="exp-item fade-up delay-1"><div class="exp-period">Jan 2026 → May 2026</div><div><div class="exp-role">Product Manager (Student Team)</div><div class="exp-company">Google Cloud × Columbia Business School</div><div class="exp-desc">Part-time student team project; proposal presented to Google Cloud product leadership.</div><a class="exp-link" href="#proj-gcloud" data-open="gcloud">See the case study &rarr;</a></div></div><div class="exp-item fade-up delay-1"><div class="exp-period">Feb 2026 → Apr 2026</div><div><div class="exp-role">Individual Project</div><div class="exp-company">Spar.ai — Kabir, a voice AI communication coach</div><div class="exp-desc">Closed beta of 35 users with 65% D30 retention.</div><a class="exp-link" href="#proj-spar" data-open="spar">See the case study &rarr;</a></div></div><div class="exp-item fade-up delay-2"><div class="exp-period">Dec 2025 → Feb 2026</div><div><div class="exp-role">Individual Project</div><div class="exp-company">Prepd.ai — AI meal-planning assistant</div><div class="exp-desc">AI recipe MVP shipped in 3 days; 78% activation across 50 beta users.</div><a class="exp-link" href="#proj-prepd" data-open="prepd">See the case study &rarr;</a></div></div><div class="exp-item fade-up delay-3"><div class="exp-period">Jul 2023 → Jul 2025</div><div><div class="exp-role">Associate Product Manager – New Product Development</div><div class="exp-company">Tata Technologies · Pune</div><div class="exp-desc">EV safety software, from business case to 200+ production vehicles.</div><a class="exp-link" href="#proj-tata" data-open="tata">See the case study &rarr;</a></div></div>
   </div>
-
-  <!-- Skills -->
-  <div class="skills-wrap fade-up">
-    <span class="skill-pill">SQL</span><span class="skill-pill">Python</span><span class="skill-pill">MATLAB</span>
-    <span class="skill-pill">React</span><span class="skill-pill">Supabase</span><span class="skill-pill">Figma</span>
-    <span class="skill-pill">PostHog</span><span class="skill-pill">Power BI</span><span class="skill-pill">Jira</span>
-    <span class="skill-pill">n8n</span><span class="skill-pill">A/B Testing</span><span class="skill-pill">User Research</span>
-    <span class="skill-pill">PRD/MRD</span><span class="skill-pill">Roadmapping</span><span class="skill-pill">GTM Strategy</span>
-    <span class="skill-pill">Agile/Scrum</span>
+  <div class="fade-up">
+<div class="skill-group"><p class="info-label">Product</p><div class="skills-wrap"><span class="skill-pill">Product Strategy</span><span class="skill-pill">PRDs</span><span class="skill-pill">Go-to-Market</span><span class="skill-pill">Roadmapping</span><span class="skill-pill">A/B Testing</span><span class="skill-pill">User Discovery</span><span class="skill-pill">UX Design</span><span class="skill-pill">Agile/Scrum</span><span class="skill-pill">Cross-Functional Leadership</span></div></div><div class="skill-group"><p class="info-label">AI &amp; Technical</p><div class="skills-wrap"><span class="skill-pill">Prompt Engineering</span><span class="skill-pill">LLM Evals</span><span class="skill-pill">Voice AI</span><span class="skill-pill">RAG</span><span class="skill-pill">Vector DB</span><span class="skill-pill">Agentic AI</span><span class="skill-pill">SQL</span><span class="skill-pill">Python</span></div></div><div class="skill-group"><p class="info-label">Tools</p><div class="skills-wrap"><span class="skill-pill">Gemini</span><span class="skill-pill">Vapi</span><span class="skill-pill">Supermemory</span><span class="skill-pill">Pinecone</span><span class="skill-pill">Supabase</span><span class="skill-pill">Figma</span><span class="skill-pill">PostHog</span><span class="skill-pill">Amplitude</span><span class="skill-pill">Microsoft Clarity</span><span class="skill-pill">Google Analytics</span><span class="skill-pill">Cursor</span><span class="skill-pill">Claude Code</span></div></div>
   </div>
 </div>
 </section>
 
 <div class="container"><div class="divider"></div></div>
 
-<!-- Contact -->
 <section id="contact" style="padding:100px 0 80px">
 <div class="container">
   <div class="contact fade-up">
-    <p class="label">Let's Connect</p>
+    <p class="label">Let&rsquo;s Connect</p>
     <h2>Want to build<br>something together<span>?</span></h2>
-    <p>I'm actively looking for PM, GTM, and TPM internship roles.<br>Based in NYC. Available for CPT/OPT.</p>
+    <p>I&rsquo;m looking for full-time Product Manager roles, especially in AI.<br>Based in New York. Graduating from Columbia in December 2026.</p>
     <div>
-      <a href="mailto:mrm2323@columbia.edu" class="btn-primary">mrm2323@columbia.edu</a>
-      <a href="tel:3322076188" class="btn-outline">(332) 207-6188</a>
+      <a href="mailto:mrm2323@columbia.edu" class="btn-primary" data-track="contact_email">mrm2323@columbia.edu</a>
+      <a href="tel:3322076188" class="btn-outline" data-track="contact_phone">(332) 207-6188</a>
     </div>
     <div class="social-links">
-      <a href="https://www.linkedin.com/in/mehulmitkari" target="_blank">LinkedIn ↗</a>
+      <a href="https://www.linkedin.com/in/mehulmitkari" target="_blank" rel="noopener" data-track="contact_linkedin">LinkedIn ↗</a>
       <a href="#hero">Back to top ↑</a>
     </div>
   </div>
 </div>
 </section>
 
-<footer><p>Designed & built by Mehul Mitkari · 2026</p></footer>
+<footer><p>Designed &amp; built by Mehul Mitkari · 2026</p></footer>
 
 <script>
-// Scroll animations
+// ---------- Optional analytics: paste your PostHog project key to enable ----------
+const POSTHOG_KEY = ''; // e.g. 'phc_xxx'. Leave empty to disable tracking.
+function track(name, props) {
+  try { if (window.posthog && POSTHOG_KEY) window.posthog.capture(name, props || {}); } catch (e) {}
+}
+if (POSTHOG_KEY) {
+  const s = document.createElement('script');
+  s.src = 'https://cdn.jsdelivr.net/npm/posthog-js@1.200.0/dist/array.full.js';
+  s.onload = () => { try { window.posthog.init(POSTHOG_KEY, { api_host: 'https://us.i.posthog.com' }); track('portfolio_view'); } catch (e) {} };
+  document.head.appendChild(s);
+}
+document.addEventListener('click', e => {
+  const t = e.target.closest('[data-track]');
+  if (t) track(t.getAttribute('data-track'));
+});
+
+// ---------- Scroll reveal, nav ----------
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') });
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
 }, { threshold: 0.12 });
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-// Nav scroll effect
 const nav = document.getElementById('navbar');
 const scrollLine = document.getElementById('scrollLine');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 50);
-  if(scrollLine) scrollLine.style.opacity = window.scrollY > 100 ? '0' : '0.4';
+  if (scrollLine) scrollLine.style.opacity = window.scrollY > 100 ? '0' : '0.4';
 }, { passive: true });
 
-// Expand/collapse
+// ---------- Count-up numbers ----------
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const countObs = new IntersectionObserver((entries) => {
+  entries.forEach(en => {
+    if (!en.isIntersecting) return;
+    const el = en.target; countObs.unobserve(el);
+    const to = parseFloat(el.dataset.to), pre = el.dataset.prefix || '', suf = el.dataset.suffix || '';
+    if (reduce) return;
+    const start = performance.now(), dur = 1100;
+    (function tick(now) {
+      const p = Math.min((now - start) / dur, 1), v = Math.round(to * (1 - Math.pow(1 - p, 3)));
+      el.textContent = pre + v + suf;
+      if (p < 1) requestAnimationFrame(tick);
+    })(start);
+  });
+}, { threshold: 0.6 });
+document.querySelectorAll('.count').forEach(el => countObs.observe(el));
+
+// ---------- Expand / collapse ----------
+function setOpen(id, open) {
+  const content = document.getElementById('expand-' + id);
+  if (!content) return;
+  const btn = content.parentElement.querySelector('.expand-btn');
+  content.classList.toggle('open', open);
+  btn.classList.toggle('open', open);
+  btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  btn.childNodes[0].textContent = open ? 'Show less ' : 'Read full case study ';
+}
 function toggleExpand(id) {
   const content = document.getElementById('expand-' + id);
-  const btn = content.parentElement.querySelector('.expand-btn');
-  const isOpen = content.classList.toggle('open');
-  btn.classList.toggle('open', isOpen);
-  btn.childNodes[0].textContent = isOpen ? 'Show less ' : 'Read full case study ';
+  const open = !content.classList.contains('open');
+  setOpen(id, open);
+  if (open) track('case_open', { case: id });
 }
+document.querySelectorAll('.exp-link').forEach(a => a.addEventListener('click', () => {
+  // make sure the target card is visible, then open it
+  resetFilters();
+  setTimeout(() => setOpen(a.dataset.open, true), 50);
+}));
+
+// ---------- Filters ----------
+const cards = Array.from(document.querySelectorAll('#cards .project-card'));
+const state = { status: 'all', skill: null };
+function applyFilters() {
+  let shown = 0;
+  cards.forEach(c => {
+    const st = (c.dataset.status || '').split(' '), tg = (c.dataset.tags || '').split(' ');
+    const ok = (state.status === 'all' || st.includes(state.status)) && (!state.skill || tg.includes(state.skill));
+    c.classList.toggle('hidden', !ok);
+    if (ok) shown++;
+  });
+  document.getElementById('countLine').textContent = 'Showing ' + shown + ' of ' + cards.length + ' projects';
+  document.querySelectorAll('.chip').forEach(ch => {
+    const g = ch.dataset.group, v = ch.dataset.value;
+    ch.setAttribute('aria-pressed', (g === 'status' ? state.status === v : state.skill === v) ? 'true' : 'false');
+  });
+}
+function resetFilters() { state.status = 'all'; state.skill = null; applyFilters(); }
+document.querySelectorAll('.chip').forEach(ch => ch.addEventListener('click', () => {
+  const g = ch.dataset.group, v = ch.dataset.value;
+  if (g === 'status') state.status = v;
+  else state.skill = state.skill === v ? null : v;
+  applyFilters();
+  track('filter', { group: g, value: v });
+}));
+applyFilters();
+
+// ---------- Company links: yoursite/?for=descript ----------
+const LINES = {
+  ai: 'I shipped a live LLM feature with guardrails and two self-authored evals.',
+  research: 'I do the customer research before building: 30–40 artist interviews at See.Me.',
+  technical: 'I ship technical products: safety software on 200+ EVs and Pinecone semantic search.',
+  growth: 'I diagnose and fix funnels: checkout conversion from 5% to 10% through an A/B test.',
+  monetization: 'I authored a two-tier subscription PRD and am running a 3-month pilot.'
+};
+const COMPANIES = {
+  descript: ['Descript', ['ai', 'technical']], snorkel: ['Snorkel AI', ['ai', 'technical']],
+  abnormal: ['Abnormal AI', ['ai', 'technical']], eliseai: ['EliseAI', ['ai', 'growth']],
+  deepgram: ['Deepgram', ['ai', 'technical']], ekohealth: ['Eko Health', ['technical', 'research']],
+  observeai: ['Observe.AI', ['ai', 'growth']], gatik: ['Gatik', ['technical', 'research']],
+  maze: ['Maze', ['research', 'growth']]
+};
+(function personalize() {
+  const slug = (new URLSearchParams(location.search).get('for') || '').toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 40);
+  if (!slug) return;
+  const entry = COMPANIES[slug] || [slug.charAt(0).toUpperCase() + slug.slice(1), ['ai', 'research']];
+  const name = entry[0], want = entry[1];
+  const scored = cards.map((c, i) => ({ c, i, s: (c.dataset.tags || '').split(' ').filter(t => want.includes(t)).length }));
+  scored.sort((a, b) => b.s - a.s || a.i - b.i);
+  scored.forEach((x, rank) => {
+    x.c.style.order = rank;
+    if (rank < 2 && x.s > 0) {
+      x.c.classList.add('is-relevant');
+      const b = x.c.querySelector('.badges');
+      const r = document.createElement('span'); r.className = 'relevant'; r.textContent = 'Most relevant for ' + name; b.prepend(r);
+    }
+  });
+  const banner = document.getElementById('companyBanner');
+  banner.textContent = '';
+  const lead = document.createElement('strong'); lead.textContent = 'Hi, ' + name + ' team. ';
+  banner.appendChild(lead);
+  banner.appendChild(document.createTextNode('I moved the work most relevant to you to the top. ' + want.map(t => LINES[t]).join(' ')));
+  banner.classList.add('show');
+  track('company_view', { company: slug });
+})();
 </script>
 </body>
 </html>
